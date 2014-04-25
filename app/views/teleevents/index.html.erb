@@ -1,0 +1,33 @@
+<h1>Listing teleevents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Phone</th>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teleevents.each do |teleevent| %>
+      <tr>
+        <td><%= teleevent.date %></td>
+        <td><%= teleevent.title %></td>
+        <td><%= teleevent.phone %></td>
+        <td><%= teleevent.description %></td>
+        <td><%= link_to 'Show', teleevent %></td>
+        <td><%= link_to 'Edit', edit_teleevent_path(teleevent) %></td>
+        <td><%= link_to 'Destroy', teleevent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teleevent', new_teleevent_path %>
